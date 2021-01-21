@@ -62,5 +62,9 @@ void Graph::primMST()
     }
   
   
-  
+ //Network design - Add How Clearly 
+ //Indirect applications.
+ //Cluster analysis
+
+
  
