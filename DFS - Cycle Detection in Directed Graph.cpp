@@ -25,6 +25,9 @@ bool checkLoop()
 	return 0;
 }
 
+// https://cp-algorithms.com/graph/depth-first-search.html
+
+
 //Problem 1 (Marking edges belong to a cycle): https://codeforces.com/contest/915/problem/D
 //Solution 1: https://codeforces.com/contest/915/submission/41311663
 
