@@ -35,4 +35,5 @@ bool isBipartite(vector<vector<int>>& graph) {
         return true;
         }
 
+// TC - O(v+e)
 // https://leetcode.com/submissions/detail/352657283/ 
