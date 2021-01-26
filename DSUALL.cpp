@@ -41,6 +41,8 @@ void merge(int u, int v)
 	root[rt1]=root[rt2];
 }
 
+//in our case a single call might take O(logn) in the worst case, but if we do m such calls back to back we will end up with an average time of O(α(n)).
+// it's worth mentioning that DSU with union by size / rank, but without path compression works in O(logn) time per query.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
 Struct Implementation:
