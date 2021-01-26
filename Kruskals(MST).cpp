@@ -2,20 +2,22 @@
 2. Pick the smallest edge. Check if it forms a cycle with the spanning tree formed so far. If cycle is not formed, include this edge. Else, discard it. 
 3. Repeat step#2 until there are (V-1) edges in the spanning tree.*/
 
-typedef struct data
+/*typedef struct data
 {
 	int u, v, w, idx;
 
 	data() {}
  
 	data(int u, int v, int w, int idx) : u(u), v(v), w(w), idx(idx) {}
-}edge;
+}edge;*/
 
 int n, m;
 int connected;
 int root[N], sz[N];
-vector<pair<int, int> > g[N];
-data edges[N];
+//vector<pair<int, int> > g[N];
+typedef  pair<int, int> iPair; 
+vector< pair<int, iPair> > edges; 
+//data edges[N];
 ==================================================================================================================================================================
 void init()
 {
@@ -55,11 +57,9 @@ void merge(int u, int v)
 	root[rt1]=root[rt2];
 }
 
-void add_edge(int idx, int u, int v, int w)
-{
-	g[u].push_back({v, w});
-	g[v].push_back({u, w});
-	edges[idx]=edge(u, v, w, idx);
+void add_edge(int u, int v, int w)
+{// Utility function to add an edge 
+        edges.push_back({w, {u, v}});  
 }
 
 //Union find part 
@@ -68,19 +68,21 @@ void add_edge(int idx, int u, int v, int w)
 
 // Krushkals Part 
 
-bool comp(data &d1, data &d2)
+/*bool comp(data &d1, data &d2)
 {
 	return d1.w < d2.w;
-}	
+}*/	
 
 int kruskalMST()
 {	
 	init();
 	int cost=0;
-	sort(edges+1, edges+m+1, comp);
-	for(int i=1;i<=m;i++)
-	{
-		int u=edges[i].u, v=edges[i].v, w=edges[i].w;
+	sort(edges.begin(),edges.end());
+	for (it=edges.begin(); it!=edges.end(); it++) 
+    	{ 
+		int u = it->second.first; 
+		int v = it->second.second;
+		int w = it->first;
 		int rt1=rt(u), rt2=rt(v);
 		if(rt1==rt2)
 			continue;
