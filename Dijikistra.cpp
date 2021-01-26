@@ -63,6 +63,7 @@
         
         //Implementatiomn assuming only one burning time 
         //https://leetcode.com/problems/network-delay-time/
+	//https://cs.stackexchange.com/questions/18797/minimum-spanning-tree-vs-shortest-path
 =================================================================================================================================================================
  //Simple Dijkstra: Taking Arrival and Departure into consideration 
 
