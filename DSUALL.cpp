@@ -27,7 +27,7 @@ void merge(int u, int v)
 {
 	int rt1=rt(u);
 	int rt2=rt(v);
-
+https://github.com/Jayaram-p-7/Shared-Interest-Hackerank-problem/blob/master/sharedinterest.cpp
 	if(rt1==rt2)
 		return;
 
@@ -96,3 +96,10 @@ struct DSU
 		par[par1]=par[par2];
 	}
 };
+
+
+===============================================================================================================================================================
+	
+https://github.com/Jayaram-p-7/Shared-Interest-Hackerank-problem/blob/master/sharedinterest.cpp
+
+
