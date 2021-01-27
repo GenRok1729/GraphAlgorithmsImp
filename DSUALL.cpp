@@ -23,6 +23,8 @@ int rt(int k)
 	return k;
 }
 
+//https://www.lintcode.com/problem/graph-valid-tree-ii/description
+
 void merge(int u, int v)
 {
 	int rt1=rt(u);
