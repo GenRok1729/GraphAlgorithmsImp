@@ -34,3 +34,7 @@ int  count = 0;
         
         return isSubtree(s->left,t) || isSubtree(s->right,t);
     }
+
+
+//Time complexity : O(m*n). In worst case(skewed tree) traverse function takes O(m*n) time.
+//Space complexity : O(n). The depth of the recursion tree can go upto n.n refers to the number of nodes in s.
