@@ -76,3 +76,54 @@ public:
         return result;
     }
 =================================================================================================================================================================
+
+//4th type of dfs where you have to also transfer labels as well 
+	
+class Solution {
+public:
+    vector<int>ans;
+    vector<vector<int>>g;
+    
+    vector<int> countSubTrees(int n, vector<vector<int>>& edges, string labels) {
+		//clearing the ans and graph for storing the current ones since these are global, it might happen 
+		//that the values from previous test cases might still be present within them which could alter 
+		//the answer of present test case.
+        ans.resize(n,0);
+        g.resize(n,vector<int>{});
+        
+		//Creating the adjacency list for the graph
+        for(auto it:edges) {
+            g[it[0]].push_back(it[1]);
+            g[it[1]].push_back(it[0]);
+        }
+        
+		//starting traversal of graph from the 0 node and parent as -1
+        dfs(0, -1, labels); //<current node, parent node, labels string>
+        
+        return ans;
+    }
+    
+    vector<int> dfs(int s, int par, string &labels) {
+		//maintaining the frequency count of the subtree with **s** as the node
+        vector<int>res(26,0);
+        res[labels[s]-'a']++; //adding the value of current node
+        
+        for(int it:g[s]) {
+            
+            if(it == par)
+                continue;
+            
+            vector<int>f = dfs(it, s, labels); //frequency count of subtree with it(child) as root
+            for(int i=0; i<26; ++i) {
+                res[i]+=f[i];
+            }
+        }
+        
+        ans[s] = res[labels[s]-'a']; //since we want the number of occurences of the char in current node
+        
+        return res;
+    }
+    
+    
+};
+==============================================================================================================================================
